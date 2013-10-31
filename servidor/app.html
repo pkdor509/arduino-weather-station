@@ -1,0 +1,61 @@
+<head>
+  <title>Arduino Weather Station</title>
+</head>
+
+<body>
+  <div class="container">
+  {{> navbar}}
+  {{renderRouter}} 
+  {{> footer}}
+  </div>
+</body>
+
+<template name="navbar">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+  	<div class="navbar-inner">
+        <div class="container">
+        	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{ pathFor 'home' }}">Arduino Weather Station</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+            	<li><a href="{{ pathFor 'home' }}">Home</a></li></li>
+			  			<li><a href="{{ pathFor 'about' }}">About</a></li>
+			</ul>
+		</div>
+        </div>
+  	</div>
+  </div>
+</template>
+
+<template name="footer">
+	<footer>
+		<div class="navbar-fixed-bottom">
+			  <div class="modal-footer">
+					Pedro Valverde © 2013
+				</div>
+		</div>
+    </footer>
+</template>
+
+<template name="home">
+	<div class="container">
+		<div>
+		{{#each allData}}
+			<blockquote>
+				<p><i class="icon-globe"></i> Temperatura: {{temperatura}} ºC</p>
+				<p><i class="icon-leaf"></i> Humedad: {{humedad}} %</p>
+				<p><i class="icon-download"></i> Presión: {{presion}} hPa</p>
+			<small><i class="icon-time"></i> {{niceTime}}</small>
+			</blockquote>
+		</pre>
+		{{/each}}
+		</div>
+	</div>
+</template>
+
+<template name="about">
+	<p>about wut?</p>
+</template>
